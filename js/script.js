@@ -4,6 +4,7 @@ $( document ).ready(function() {
    a2=true;
    a3=true;
   $('#demographic').click(function(){
+
     // alert("working");
     if(a1){
     $('.demographic-form').css("display","block");}
@@ -18,5 +19,8 @@ $( document ).ready(function() {
       a1=true;
     }
   });
-  
+  $('#sign').click(function(){
+    //console.log($('#sign').html);
+  });
+
 });

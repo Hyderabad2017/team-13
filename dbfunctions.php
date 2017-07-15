@@ -1,10 +1,10 @@
 <?php include "dbconnection.php"; ?>
 <?php
 
-    if(isset($_POST['sub'])){
-
-      update();
-}
+//     if(isset($_POST['sub'])){
+//
+//       update();
+// }
     function showAllData(){
       global $connection;
     $query="SELECT * FROM users";
@@ -27,16 +27,20 @@
     // $u=mysqli_real_escape_string($connection,$u);
     // $p=mysqli_real_escape_string($connection,$p);
     global $connection;
-    $query1="SELECT oid FROM observer WHERE oname='$n' and password='$p'";
+    $query1="SELECT oid1 FROM observer WHERE oname='$n' and password='$p'";
     $r=mysqli_query($connection,$query1);
-    if(!$r)
-    {
-      echo "fail".mysqli_error($connection);
-    }
-    else {
+    $row = mysqli_fetch_array($r,MYSQLI_ASSOC);
+      $active = $row['oid1'];
+      $count = mysqli_num_rows($r);
+      if($count == 1) {
+             $_SESSION['login_user'] = $n;
 
-      echo"success";
-    }
-  }
-
- ?>
+             //header("location: index.php");
+          }else {
+             $error = "Your Login Name or Password is invalid";
+             //echo $error;
+             $_SESSION['error']=$error;
+             //header("location: index.php");
+          }
+       }
+    ?>
