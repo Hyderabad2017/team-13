@@ -11,9 +11,7 @@ $path = "";
 if(isset($_POST['upload'])){
 	//move_uploaded_file ( string $filename , string $destination);
 	$path=$_FILES["UploadFileName"]["name"];
-	echo $path;
-}
-
+	//echo $path;
 //}changed to inlcude submit file module above
 //move_uploaded_file ( string $filename , string $destination )
 
@@ -76,7 +74,7 @@ mysqli_query($conn,$sql) or die(mysqli_errno($conn));
 echo '</table>';*/
 
 }
-
+}
 //}
 /*for ($row = 1; $row <= $highestRow; ++ $row) {
 $val=array();
