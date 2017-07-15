@@ -17,9 +17,7 @@
     <link rel="stylesheet" href="css/animate.css">
     <title>Learning Curve</title>
     <script src="js/wow.min.js"></script>
-              <script>
-              new WOW().init();
-              </script>
+    <script> new WOW().init();  </script>
     <link rel="stylesheet" href="css/styles.css">
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,38 +31,71 @@
     <link href="css/grayscale.css" rel="stylesheet">
 
 </head>
+<?php
+include 'dbconnection.php';
+include 'dbfunctions.php';?>
+
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
-    <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-xs">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sign In</h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group ">
-            <label for="name" class="col-md-2 control-label" >Name</label>
+    <div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                   data-dismiss="modal">
+                       <span aria-hidden="true">&times;</span>
+                       <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    Modal title
+                </h4>
+            </div>
 
-              <input type="text" class="form-control col-md-offset-2" style="width:20em" id="name" name="lastname" placeholder="Username" required>
+            <!-- Modal Body -->
+            <div class="modal-body">
 
-          </div>
-          <div class="form-group">
-          <label for="pass" >Password</label>
+                <form class="form-horizontal" method="post" action="dbfunctions.php" role="form">
+                  <div class="form-group">
+                    <label  class="col-sm-2 control-label"
+                              for="inputEmail3">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"
+                        id="name" name="name" placeholder="Name"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                          for="inputPassword3" >Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control"
+                            id="password" name="password" placeholder="Password" required/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <input type="submit" class="btn btn-default" value="Go" name="sub"/>
+                    </div>
+                  </div>
+                </form>
 
-            <input type="password" name="pass" class="form-control col-md-offset-2" placeholder="your password" style="width:20em"  >
 
+
+
+
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+
+            </div>
         </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" id="sign-in" class="btn btn-default pull-left col-md-offset-5" data-dismiss="modal">Sign-In</button>
-        </div>
-      </div>
     </div>
-  </div>
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+</div><nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -83,7 +114,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" data-toggle="modal" data-target="#myModal" href="#about">Sign In</a>
+                        <a class="page-scroll" data-toggle="modal" data-target="#myModalHorizontal">Sign In</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
@@ -211,7 +242,7 @@
          </div>
        </form>
        </div>
-      
+
 
     <!-- Footer -->
     <footer>
