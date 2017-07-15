@@ -4,7 +4,6 @@
 <head>
 
     <meta charset="utf-8">
-
     <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="js/grayscale.js"></script>
     <script src="js/script.js" type="text/javascript">
@@ -20,111 +19,86 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
-    <!-- Theme CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
-
 </head>
 <?php session_start();
-include 'dbconnection.php';
-include 'dbfunctions.php';
-//echo"----";
-session_destroy();
-if(isset($_POST['sub'])){
-  //echo "world";
-  update();
-  //echo $_SESSION['login_user'];
-  if(!isset($_SESSION['error'])){
-    ?>
-    <script type="text/javascript">
-      function changeButton(){var nu=document.getElementById('sign');
-        nu.style.display="none";
-        var nu=document.getElementById('log');
-          nu.style.display="block";
-      }
-      window.onload=changeButton;
-    </script>
-    <?php
+  include 'dbconnection.php';
+  include 'dbfunctions.php';
+  //echo"----";
+  session_destroy();
+  if(isset($_POST['sub'])){
+    //echo "world";
+    update();
+    //echo $_SESSION['login_user'];
+    if(!isset($_SESSION['error'])){
+?>
+<script type="text/javascript">
+  function changeButton(){var nu=document.getElementById('sign');
+    nu.style.display="none";
+    var nu=document.getElementById('log');
+    nu.style.display="block";
+  }
+  window.onload=changeButton;
+</script>
+<?php
   }
 }
 ?>
-
-
-
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-    <!-- Navigation -->
-    <div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog"
+  <!-- Navigation -->
+  <div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <button type="button" class="close"
-                   data-dismiss="modal">
-                       <span aria-hidden="true">&times;</span>
-                       <span class="sr-only">Close</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    Modal title
-                </h4>
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form class="form-horizontal" method="post" action="index.php" role="form">
+            <div class="form-group">
+              <label  class="col-sm-2 control-label" for="inputEmail3">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control"   id="name" name="name" placeholder="Name"/>
+              </div>
             </div>
-
-            <!-- Modal Body -->
-            <div class="modal-body">
-
-                <form class="form-horizontal" method="post" action="index.php" role="form">
-                  <div class="form-group">
-                    <label  class="col-sm-2 control-label"
-                              for="inputEmail3">Name</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control"
-                        id="name" name="name" placeholder="Name"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label"
-                          for="inputPassword3" >Password</label>
-                    <div class="col-sm-10">
-                        <input type="password" class="form-control"
-                            id="password" name="password" placeholder="Password" required/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <input type="submit" class="btn btn-default" value="Go" name="sub"/>
-                    </div>
-                  </div>
-                </form>
-
-
-
-
-
-
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="inputPassword3" >Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required/>
+              </div>
             </div>
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" class="btn btn-default" value="Go" name="sub"/>
+              </div>
+            </div>
+          </form>
+        </div>
 
             <!-- Modal Footer -->
-            <div class="modal-footer">
+        <div class="modal-footer">
 
-            </div>
         </div>
+      </div>
     </div>
-</div><nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                     Learning-Curve
-                </a>
-            </div>
+  </div>
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">Menu <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top">Learning-Curve  </a>
+      </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
@@ -213,7 +187,7 @@ if(isset($_POST['sub'])){
       <div class="demographic-form" id="d-form" style="display:none">
 
 
-     <form class="form-horizontal" action="index.html" method="post">
+     <form class="form-horizontal" action="dbinsery.php" method="post">
          <div class="form-group">
            <label for="name" class="control-label col-md-2">Student Name</label>
            <div class="col-md-8">
@@ -265,7 +239,7 @@ if(isset($_POST['sub'])){
          </div>
        </form>
        </div>
-<div class="cl-form" id="cl-form" style="display:">
+<div class="cl-form" id="cl-form" style="display:none">
      <form class="form-horizontal" action="dbinsertca.php" method="post">
          <div class="form-group">
            <label for="number" class="control-label col-md-2">School id</label>
@@ -313,36 +287,117 @@ if(isset($_POST['sub'])){
 
        <div class="c-form" id="c-form" style="display:none">
             <form class="form-horizontal" action="dbinsertca.php" method="post">
+              <div class="form-group">
+              <label class="control-label col-md-2">Student Name</label>
               <div class="col-md-2">
                 <select name="ps" class="form-control" >
-                  <option>demo</option>
                   <?php
                   if(isset($_SESSION['oid'])){
                   global $connection;
                   $i=$_SESSION['oid'];
 
                   $query1="SELECT * FROM observer_student WHERE oid1='$i'";
-                  echo "<option>$query1</option>";
+
                   $r=mysqli_query($connection,$query1)or die("entry failed".mysqli_error($connection));
                   //$row = mysqli_fetch_assoc($r);
-                  echo "<option>demo-1</option>";
+
                   while($row = mysqli_fetch_assoc($r))
                   {
                     $temp=$row['sid'];
-                    echo "<option>$temp</option>";
+
                     $q2="SELECT * FROM student WHERE sid='$temp'";
-                    echo"<option>$q2</option>";
+
                     $r2=mysqli_query($connection,$q2)or die("entry failed".mysqli_error($connection));
                     $row2 = mysqli_fetch_assoc($r2);
                     echo "<option value='".$row2['Name']."'>".$row2['Name']."</option>";
 
                   }
                 }
-                   ?></select>
-                 </div>
-               </form>
-             </div>
 
+                   ?>
+                </select>
+              </div></div>
+              <div class="form-group">
+                <label for="number" class="control-label col-md-2">Term</label>
+                <div class="col-md-8">
+                  <div class="radio-inline">
+                    <label for="1">
+                    <input type="radio" name="t" value="1" id="1">
+                    1</label>
+                  </div>
+                  <div class="radio-inline">
+                    <label for="2">
+                    <input type="radio" name="t" value="2" id="2">
+                    2</label>
+                  </div>
+               <div class="radio-inline">
+                    <label for="3">
+                    <input type="radio" name="t" value="3" id="3">
+                    3</label>
+                  </div>
+
+                </div>
+              </div>
+                <div class="form-group">
+                  <label for="number" class="control-label col-md-2">Year</label>
+                  <div class="col-md-8">
+                    <input type="number" class="form-control" id="dob" name="year" placeholder="year" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="ma" class="control-label col-md-2">Assumed Age</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="ma" placeholder="assumed jobs">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="ld" class="control-label col-md-2">Language difficulty</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="ld" placeholder="language difficulty">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="q1" class="control-label col-md-2">Q1.</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="q1" placeholder="l">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="q2" class="control-label col-md-2">Q2.</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="q2" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="q3" class="control-label col-md-2">Q3</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="q3" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="q4" class="control-label col-md-2">Q4.</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="q4" placeholder="">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="q5" class="control-label col-md-2">Q5.</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="q5" placeholder="">
+                  </div>
+                </div><div class="form-group">
+                  <label for="q6" class="control-label col-md-2">Q6.</label>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" name="q6" placeholder="">
+                  </div>
+                </div>
+
+                <div class="form-group"><p class="col-md-offset-2">(or)</p>
+                <input type="file" name="excelFile" class="col-md-offset-2"value=""></div>
+          <input type="submit" class="btn btn-success btn-md col-md-4 col-md-offset-2"name="submit2" value="Go">
+                </div>
+              </form>
+              </div>
 
 
 
