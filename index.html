@@ -4,6 +4,12 @@
 <head>
 
     <meta charset="utf-8">
+
+    <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script src="js/grayscale.js"></script>
+    <script src="js/script.js">
+
+    </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -14,6 +20,7 @@
               <script>
               new WOW().init();
               </script>
+    <link rel="stylesheet" href="css/styles.css">
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,22 +28,42 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <script src="js/jquery-3.2-1.js" charset="utf-8"></script>
+
     <!-- Theme CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
+    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-xs">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group ">
+            <label for="name" >Name</label>
+
+              <input type="text" class="form-control col-md-offset-2" style="width:3em" id="name" name="lastname" placeholder="Username" required>
+
+          </div>
+          <div class="form-group">
+          <label for="pass" >Password</label>
+
+            <input type="password" name="pass" class="form-control" placeholder="your password" maxlength="10" min="5" >
+
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="sign-in" class="btn btn-default pull-left col-md-offset-5" data-dismiss="modal">Sign-In</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -56,7 +83,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Sign In</a>
+                        <a class="page-scroll" data-toggle="modal" data-target="#myModal" href="#about">Sign In</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#download">Sign Up</a>
@@ -92,7 +119,7 @@
     </header>
 
     <!-- About Section -->
-    <section id="about" class="container content-section text-center">
+    <section id="about" class=" content-section text-center">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <h2>OUR STORY</h2>
@@ -100,69 +127,93 @@
             </div>
         </div>
     </section>
+    <div class="row">
 
-    <!-- Download Section -->
-    <!-- <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <section id="download" class="container">
 
-        <div id="demographic" class="col-md-4 wow slideInLeft">
+      <div class="fill-screen fixed-attachment" style="background">
 
-          <img src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
-          <p style="padding-top:10px">Upload Demographic Data</p>
-        </div>
+      </div></div>
+    <section id="download" class="row">
+        <div class="container">
+          <div class="container">
 
-        <div  id="child-assess" class="col-md-4 wow slideInLeft">
-          <img src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
-          <p style="padding-top:10px">Child Assessment Data</p>
-        </div>
 
-        <div id="classroom" class="col-md-4 wow slideInLeft">
+
+        <a href="#d-form" id="demographic" class="col-md-4 wow slideInLeft" >
+
+          <img  src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
+          <p style="padding-top:10px margin-left:0px" class="pull-left">Upload Demographic Data</p>
+        </a>
+
+        <a href="#c-form" id="child-assess" class="col-md-4 wow slideInLeft">
+          <img src="assets/back.png" alt="" class="img-circle " width="200px" height="200px">
+          <p style="padding-top:10px ">Child Assessment Data</p>
+        </a>
+
+        <a href="#cl-form" id="classroom" class="col-md-4 wow slideInLeft">
 
           <img src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
-          <p style="padding-top:10px">Classroom Data</p>
-        </div>
+          <p style="padding-top:10px" >Classroom Data</p>
+        </a>
+                </div>        </div>
 
-    </section>
-    <section id="dynamic-form">
-      <input type="text" name="" value="">
-      <input type="text" name="" value="">
-      <input type="text" name="" value="">
-    </section>
-    <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Start Bootstrap</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                </p>
-                <ul class="list-inline banner-social-buttons">
-                    <li>
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+     </section>
+      <div class="demographic-form" id="d-form" style="display:none">
 
-    <!-- Map Section -->
-    <div id="map"></div>
+
+     <form class="form-horizontal" action="index.html" method="post">
+         <div class="form-group">
+           <label for="name" class="control-label col-md-2">Student Name</label>
+           <div class="col-md-8">
+             <input type="text" class="form-control" id="name" name="name" placeholder="John" >
+           </div>
+         </div>
+         <div class="form-group">
+           <label for="dob" class="control-label col-md-2">Last Name</label>
+           <div class="col-md-8">
+             <input type="text" class="form-control" id="dob" name="dob" placeholder="yyyy/mm/dd" required>
+           </div>
+         </div>
+         <div class="form-group">
+           <label for="gender" class="control-label col-md-2">Gender</label>
+           <div class="col-md-8">
+             <div class="radio-inline">
+               <label for="male">
+               <input type="radio" name="gender" value="M" id="male">
+               Male</label>
+             </div>
+             <div class="radio-inline">
+               <label for="female">
+               <input type="radio" name="gender" value="F" id="female">
+               Female</label>
+             </div>
+           </div>
+         </div>
+         <div class="form-group">
+           <label for="occupation" class="control-label col-md-2">Occupation</label>
+           <div class="col-md-8">
+             <input type="text" class="form-control" name="occupation" placeholder="occupation">
+           </div>
+         </div><div class="form-group">
+         <label class="control-label col-md-2">Parental Status</label>
+         <div class="col-md-2">
+           <select name="ps" class="form-control" >
+             <option value="0">Orphan</option>
+             <option value="1">Single</option>
+             <option value="2">None</option>
+           </select>
+         </div></div>
+         <div class="form-group">
+           <label for="income" class="control-label col-md-2">Income</label>
+           <div class="col-md-8">
+             <input type="number" name="income" class="form-control" placeholder="income" >
+           </div>
+         </div>
+           <input type="submit" class="btn btn-success btn-md col-md-4 col-md-offset-2"name="submit" value="Go">
+         </div>
+       </form>
+       </div>
+
 
     <!-- Footer -->
     <footer>
@@ -178,13 +229,10 @@
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
     <!-- Theme JavaScript -->
-    <script src="js/grayscale.min.js"></script>
+
 
 </body>
 

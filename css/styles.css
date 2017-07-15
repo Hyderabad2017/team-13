@@ -1,0 +1,13 @@
+button {
+  background-color: black;
+  border: 0px;
+}
+button:hover{
+  border: 2px white;
+}
+#sign-in {
+  background-color: black;
+  border: black;
+  color: white;
+  
+}
