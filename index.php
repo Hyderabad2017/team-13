@@ -182,18 +182,18 @@ if(isset($_POST['sub'])){
 
 
 
-        <a href="#d-form" id="demographic" class="col-md-4 wow slideInLeft" >
+        <a href="#d-form" id="demographic" class="col-md-4 col-sm-6 wow slideInLeft" >
 
           <img  src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
           <p style="padding-top:10px margin-left:0px" class="pull-left">Upload Demographic Data</p>
         </a>
 
-        <a href="#c-form" id="child-assess" class="col-md-4 wow slideInLeft">
+        <a href="#c-form" id="child-assess" class="col-md-4 col-sm-6 wow slideInLeft">
           <img src="assets/back.png" alt="" class="img-circle " width="200px" height="200px">
           <p style="padding-top:10px ">Child Assessment Data</p>
         </a>
 
-        <a href="#cl-form" id="classroom" class="col-md-4 wow slideInLeft">
+        <a href="#cl-form" id="classroom" class="col-md-4 col-sm-6 wow slideInLeft">
 
           <img src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
           <p style="padding-top:10px" >Classroom Data</p>
