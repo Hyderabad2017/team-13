@@ -7,7 +7,7 @@
 
     <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="js/grayscale.js"></script>
-    <script src="js/script.js">
+    <script src="js/script.js" type="text/javascript">
 
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,9 +31,23 @@
     <link href="css/grayscale.css" rel="stylesheet">
 
 </head>
-<?php
+<?php session_start();
 include 'dbconnection.php';
-include 'dbfunctions.php';?>
+include 'dbfunctions.php';
+//echo"----";
+if(isset($_POST['sub'])){
+  //echo "world";
+  update();
+  if(isset($_SESSION['login_user'])){
+    ?>
+    <style media="screen">
+    #sign{
+      display: none;
+    }
+    </style><?php
+  }
+}
+?>
 
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -58,7 +72,7 @@ include 'dbfunctions.php';?>
             <!-- Modal Body -->
             <div class="modal-body">
 
-                <form class="form-horizontal" method="post" action="dbfunctions.php" role="form">
+                <form class="form-horizontal" method="post" action="index.php" role="form">
                   <div class="form-group">
                     <label  class="col-sm-2 control-label"
                               for="inputEmail3">Name</label>
@@ -114,7 +128,7 @@ include 'dbfunctions.php';?>
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" data-toggle="modal" data-target="#myModalHorizontal">Sign In</a>
+                        <a class="page-scroll" data-toggle="modal" data-target="#myModalHorizontal" id="sign">Sign In</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
