@@ -38,7 +38,7 @@
              //header("location: index.php");
           }else {
              $error = "Your Login Name or Password is invalid";
-             echo $error;
+             //echo $error;
              $_SESSION['error']=$error;
              //header("location: index.php");
           }

@@ -29,9 +29,6 @@ $conn=mysqli_connect("13.229.51.247","root","root","mydb") or die("Could not con
 //$path = "testxl.xlsx";
 $objPHPExcel = PHPExcel_IOFactory::load($path);
 
-//Loop threw file to get data
-//$worksheet=$objPHPExcel->getWorksheetIterator() ;
-
 $highestRow=5;  
 $highestColumn="A";
 $highestColumnIndex=12;
@@ -63,33 +60,4 @@ mysqli_query($conn,$sql) or die(mysqli_errno($conn));
 }
 }
 
-/*for ($row = 1; $row <= $highestRow; ++ $row) {
-    echo '<tr>';
-    for ($col = 0; $col < $highestColumnIndex; ++ $col) {
-        $cell = $worksheet->getCellByColumnAndRow($col, $row);
-        $val = $cell->getCalculatedValue();
-        //$dataType = PHPExcel_Cell_DataType::dataTypeForValue($val);
-        echo '<td>' . $val . '<br></td>';
-    }
-    echo '</tr>';
-}
-echo '</table>';*/
-
-}
-
-//}
-/*for ($row = 1; $row <= $highestRow; ++ $row) {
-$val=array();
-for ($col = 0; $col < $highestColumnIndex; ++ $col) {
-$cell = $worksheet->getCellByColumnAndRow($col, $row);
-//$val[]=$cell->getValue();
-echo 'val is:'.$cell->getCalculatedValue();
-array_push($val,$cell->getValue());
-}
-//Insert data from file to mysql 
-$sql="INSERT INTO `Chasses`(oid1,sid,sem,year,assumed_age,lang_diff,q1,q2,q3,q4,q5,q6)
-VALUES ('".$val[0].",'".$val[1]."','". $val[2]."','".$val[3]."','".$val[4]."','".$val[5]."','".$val[6]."','".$val[7]."','".$val[8]."','".$val[9]."','".$val[10]."','".$val[11]."')";
-//echo $sql."\n";
-mysqli_query($conn,$sql) or die('Invalid query: ');
-}*/
 ?>

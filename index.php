@@ -35,17 +35,25 @@
 include 'dbconnection.php';
 include 'dbfunctions.php';
 //echo"----";
+session_destroy();
 if(isset($_POST['sub'])){
   //echo "world";
   update();
-  if(isset($_SESSION['login_user'])){
+  //echo $_SESSION['login_user'];
+  if(!isset($_SESSION['error'])){
     ?>
-    <style media="screen">
-    #sign{
-      display: none;
-    }
-    </style><?php
+    <script type="text/javascript">
+      function changeButton(){var nu=document.getElementById('sign');
+        nu.style.display="none";
+        var nu=document.getElementById('log');
+          nu.style.display="block";
+      }
+
+      window.onload=changeButton;
+    </script>
+    <?php
   }
+
 }
 ?>
 
@@ -139,6 +147,9 @@ if(isset($_POST['sub'])){
                     <li>
                         <a class="page-scroll" href="#analytics">Analytics</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" id="log" style="display:none" href = "logout.php">Log Out</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -182,18 +193,18 @@ if(isset($_POST['sub'])){
 
 
 
-        <a href="#d-form" id="demographic" class="col-md-4 col-sm-6 wow slideInLeft" >
+        <a href="#d-form" id="demographic" class="col-md-4 wow slideInLeft" >
 
           <img  src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
           <p style="padding-top:10px margin-left:0px" class="pull-left">Upload Demographic Data</p>
         </a>
 
-        <a href="#c-form" id="child-assess" class="col-md-4 col-sm-6 wow slideInLeft">
+        <a href="#c-form" id="child-assess" class="col-md-4 wow slideInLeft">
           <img src="assets/back.png" alt="" class="img-circle " width="200px" height="200px">
           <p style="padding-top:10px ">Child Assessment Data</p>
         </a>
 
-        <a href="#cl-form" id="classroom" class="col-md-4 col-sm-6 wow slideInLeft">
+        <a href="#cl-form" id="classroom" class="col-md-4 wow slideInLeft">
 
           <img src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
           <p style="padding-top:10px" >Classroom Data</p>
