@@ -27,9 +27,6 @@ $conn=mysqli_connect("13.229.51.247","root","root","mydb") or die("Could not con
 //$path = "testxl.xlsx";
 $objPHPExcel = PHPExcel_IOFactory::load($path);
 
-//Loop threw file to get data
-//$worksheet=$objPHPExcel->getWorksheetIterator() ;
-
 $highestRow=5;  
 $highestColumn="A";
 $highestColumnIndex=12;
@@ -61,6 +58,7 @@ mysqli_query($conn,$sql) or die(mysqli_errno($conn));
 }
 }
 
+<<<<<<< HEAD
 /*for ($row = 1; $row <= $highestRow; ++ $row) {
     echo '<tr>';
     for ($col = 0; $col < $highestColumnIndex; ++ $col) {
@@ -90,4 +88,6 @@ VALUES ('".$val[0].",'".$val[1]."','". $val[2]."','".$val[3]."','".$val[4]."','"
 //echo $sql."\n";
 mysqli_query($conn,$sql) or die('Invalid query: ');
 }*/
+=======
+>>>>>>> 4003b8017393a9f99d8aec0fd11432d3c337eccc
 ?>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,8 +7,7 @@
 
     <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
     <script src="js/grayscale.js"></script>
-    <script src="js/script.js">
-
+    <script src="js/script.js" type="text/javascript">
     </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,9 +30,29 @@
     <link href="css/grayscale.css" rel="stylesheet">
 
 </head>
-<?php
+<?php session_start();
 include 'dbconnection.php';
-include 'dbfunctions.php';?>
+include 'dbfunctions.php';
+//echo"----";
+session_destroy();
+if(isset($_POST['sub'])){
+  //echo "world";
+  update();
+  //echo $_SESSION['login_user'];
+  if(!isset($_SESSION['error'])){
+    ?>
+    <script type="text/javascript">
+      function changeButton(){var nu=document.getElementById('sign');
+        nu.style.display="none";
+        var nu=document.getElementById('log');
+          nu.style.display="block";
+      }
+      window.onload=changeButton;
+    </script>
+    <?php
+  }
+}
+?>
 
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -58,7 +77,7 @@ include 'dbfunctions.php';?>
             <!-- Modal Body -->
             <div class="modal-body">
 
-                <form class="form-horizontal" method="post" action="dbfunctions.php" role="form">
+                <form class="form-horizontal" method="post" action="index.php" role="form">
                   <div class="form-group">
                     <label  class="col-sm-2 control-label"
                               for="inputEmail3">Name</label>
@@ -114,7 +133,7 @@ include 'dbfunctions.php';?>
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" data-toggle="modal" data-target="#myModalHorizontal">Sign In</a>
+                        <a class="page-scroll" data-toggle="modal" data-target="#myModalHorizontal" id="sign">Sign In</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
@@ -124,6 +143,9 @@ include 'dbfunctions.php';?>
                     </li>
                     <li>
                         <a class="page-scroll" href="#analytics">Analytics</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" id="log" style="display:none" href = "logout.php">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -168,18 +190,18 @@ include 'dbfunctions.php';?>
 
 
 
-        <a href="#d-form" id="demographic" class="col-md-4 col-sm-6 wow slideInLeft" >
+        <a href="#d-form" id="demographic" class="col-md-4 wow slideInLeft" >
 
           <img  src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
           <p style="padding-top:10px margin-left:0px" class="pull-left">Upload Demographic Data</p>
         </a>
 
-        <a href="#c-form" id="child-assess" class="col-md-4 col-sm-6 wow slideInLeft">
+        <a href="#c-form" id="child-assess" class="col-md-4 wow slideInLeft">
           <img src="assets/back.png" alt="" class="img-circle " width="200px" height="200px">
           <p style="padding-top:10px ">Child Assessment Data</p>
         </a>
 
-        <a href="#cl-form" id="classroom" class="col-md-4 col-sm-6 wow slideInLeft">
+        <a href="#cl-form" id="classroom" class="col-md-4 wow slideInLeft">
 
           <img src="assets/back.png" alt="" class="img-circle" width="200px" height="200px">
           <p style="padding-top:10px" >Classroom Data</p>
@@ -242,6 +264,56 @@ include 'dbfunctions.php';?>
          </div>
        </form>
        </div>
+<div class="cl-form" id="cl-form" style="display:">
+     <form class="form-horizontal" action="dbinsertca.php" method="post">
+         <div class="form-group">
+           <label for="number" class="control-label col-md-2">School id</label>
+           <div class="col-md-8">
+             <input type="text" class="form-control" id="name" name="sclid" placeholder="school id" >
+           </div>
+         </div>
+         <div class="form-group">
+           <label for="number" class="control-label col-md-2">Class id</label>
+           <div class="col-md-8">
+             <input type="text" class="form-control" id="dob" name="cid" placeholder="class id" required>
+           </div>
+         </div>
+         <div class="form-group">
+           <label for="number" class="control-label col-md-2">Term</label>
+           <div class="col-md-8">
+             <div class="radio-inline">
+               <label for="1">
+               <input type="radio" name="t" value="1" id="1">
+               1</label>
+             </div>
+             <div class="radio-inline">
+               <label for="2">
+               <input type="radio" name="t" value="2" id="2">
+               2</label>
+             </div>
+          <div class="radio-inline">
+               <label for="3">
+               <input type="radio" name="t" value="3" id="3">
+               3</label>
+             </div>
+
+           </div>
+         </div>
+         <div class="form-group">
+           <label for="number" class="control-label col-md-2">Marks Assessed</label>
+           <div class="col-md-8">
+             <input type="text" class="form-control" name="ma" placeholder="marks assessed">
+           </div>
+         </div>
+   <input type="submit" class="btn btn-success btn-md col-md-4 col-md-offset-2"name="submit2" value="Go">
+         </div>
+       </form>
+       </div>
+
+
+
+
+
 
 
     <!-- Footer -->
