@@ -5,13 +5,15 @@
            $cid=$_POST['cid'];
              $t=$_POST['t'];
              $ma=$_POST['ma'];
-               if(isset($_POST['submit']))
+             global $connection;
+               if(isset($_POST['submit2']))
             {
-                $q="INSERT INTO classroom-assessment(schoolid,cid,term,avg) VALUES ('$sclid','$cid','$t','$ma')";
-                $result=mysqli_query($connection,$q) or die("entry failed");
+                $q="INSERT INTO classroom_assessment(schoolid,cid,term,avg) VALUES ('$sclid','$cid','$t','$ma')";
+                //echo $q;
+                $result=mysqli_query($connection,$q) or die("entry failed".mysqli_error($connection));
                 if($result)
                 {
-                        echo "entered successfully";
+                        header("location: index.php#cl-form");
                 }
                 else
                         echo "not inserted";

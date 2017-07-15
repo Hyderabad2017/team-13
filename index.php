@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -53,6 +53,7 @@ if(isset($_POST['sub'])){
   }
 }
 ?>
+
 
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -309,6 +310,38 @@ if(isset($_POST['sub'])){
          </div>
        </form>
        </div>
+
+       <div class="c-form" id="c-form" style="display:none">
+            <form class="form-horizontal" action="dbinsertca.php" method="post">
+              <div class="col-md-2">
+                <select name="ps" class="form-control" >
+                  <option>demo</option>
+                  <?php
+                  if(isset($_SESSION['oid'])){
+                  global $connection;
+                  $i=$_SESSION['oid'];
+
+                  $query1="SELECT * FROM observer_student WHERE oid1='$i'";
+                  echo "<option>$query1</option>";
+                  $r=mysqli_query($connection,$query1)or die("entry failed".mysqli_error($connection));
+                  //$row = mysqli_fetch_assoc($r);
+                  echo "<option>demo-1</option>";
+                  while($row = mysqli_fetch_assoc($r))
+                  {
+                    $temp=$row['sid'];
+                    echo "<option>$temp</option>";
+                    $q2="SELECT * FROM student WHERE sid='$temp'";
+                    echo"<option>$q2</option>";
+                    $r2=mysqli_query($connection,$q2)or die("entry failed".mysqli_error($connection));
+                    $row2 = mysqli_fetch_assoc($r2);
+                    echo "<option value='".$row2['Name']."'>".$row2['Name']."</option>";
+
+                  }
+                }
+                   ?></select>
+                 </div>
+               </form>
+             </div>
 
 
 

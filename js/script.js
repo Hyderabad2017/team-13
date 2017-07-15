@@ -1,26 +1,61 @@
-$(document).ready(function(){
-	var ctx = $("#mycanvas").get(0).getContext("2d");
+$( document ).ready(function() {
+  //alert("working");
+   a1=true;
+   a2=true;
+   a3=true;
+  $('#demographic').click(function(){
 
-	var data = [
-		{
-			value: 270,
-			color: "cornflowerblue",
-			highlight: "lightskyblue",
-			label: "JavaScript"
-		},
-		{
-			value: 50,
-			color: "lightgreen",
-			highlight: "yellowgreen",
-			label: "HTML"
-		},
-		{
-			value: 40,
-			color: "orange",
-			highlight: "darkorange",
-			label: "CSS"
-		}
-	];
+    // alert("working");
+    if(a1){
+      $('.c-form').css("display","none");
+      $('.cl-form').css("display","none");
+    $('.demographic-form').css("display","block");}
+    else{
+      $('.demographic-form').css("display","none");
+    }
+    if(a1)
+    {
+      a1=false;
+    }
+    else {
+      a1=true;
+    }
+  });
+  $('#classroom').click(function(){
 
-	var chart = new Chart(ctx).Doughnut(data);
+    // alert("working");
+    if(a2){
+      $('.c-form').css("display","none");
+      $('.demographic-form').css("display","none");
+    $('.cl-form').css("display","block");}
+    else{
+      $('.cl-form').css("display","none");
+    }
+    if(a2)
+    {
+      a2=false;
+    }
+    else {
+      a2=true;
+    }
+  });
+  $('#child-assess').click(function(){
+
+    // alert("working");
+    if(a3){
+      $('.cl-form').css("display","none");
+      $('.demographic-form').css("display","none");
+    $('.c-form').css("display","block");}
+    else{
+      $('.c-form').css("display","none");
+    }
+    if(a3)
+    {
+      a3=false;
+    }
+    else {
+      a3=true;
+    }
+  });
+
 });

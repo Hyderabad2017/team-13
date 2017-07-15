@@ -27,12 +27,14 @@
     // $u=mysqli_real_escape_string($connection,$u);
     // $p=mysqli_real_escape_string($connection,$p);
     global $connection;
-    $query1="SELECT oid1 FROM observer WHERE oname='$n' and password='$p'";
+    $query1="SELECT * FROM observer WHERE oname='$n' and password='$p'";
     $r=mysqli_query($connection,$query1);
-    $row = mysqli_fetch_array($r,MYSQLI_ASSOC);
+    $row = mysqli_fetch_assoc($r);
       $active = $row['oid1'];
+
       $count = mysqli_num_rows($r);
       if($count == 1) {
+            $_SESSION['oid']=$active;
              $_SESSION['login_user'] = $n;
 
              //header("location: index.php");
