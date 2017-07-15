@@ -1,26 +1,26 @@
-$( document ).ready(function() {
-  //alert("working");
-   a1=true;
-   a2=true;
-   a3=true;
-  $('#demographic').click(function(){
+$(document).ready(function(){
+	var ctx = $("#mycanvas").get(0).getContext("2d");
 
-    // alert("working");
-    if(a1){
-    $('.demographic-form').css("display","block");}
-    else{
-      $('.demographic-form').css("display","none");
-    }
-    if(a1)
-    {
-      a1=false;
-    }
-    else {
-      a1=true;
-    }
-  });
-  $('#sign').click(function(){
-    //console.log($('#sign').html);
-  });
+	var data = [
+		{
+			value: 270,
+			color: "cornflowerblue",
+			highlight: "lightskyblue",
+			label: "JavaScript"
+		},
+		{
+			value: 50,
+			color: "lightgreen",
+			highlight: "yellowgreen",
+			label: "HTML"
+		},
+		{
+			value: 40,
+			color: "orange",
+			highlight: "darkorange",
+			label: "CSS"
+		}
+	];
 
+	var chart = new Chart(ctx).Doughnut(data);
 });
