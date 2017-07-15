@@ -26,30 +26,37 @@ $highestRow         = $worksheet->getHighestDataRow(); // e.g. 10
 $highestColumn      = $worksheet->getHighestColumn(); // e.g 'F'
 $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
 $nrColumns = ord($highestColumn) - 64;
-/*echo "<br>The worksheet ".$worksheetTitle." has ";
+echo "<br>The worksheet ".$worksheetTitle." has ";
 echo $nrColumns . ' columns (A-' . $highestColumn . ') ';
 echo ' and ' . $highestRow . ' row.';
-echo '<br>Data: <table border="1"><tr>';*/
+echo '<br>Data: <table border="1"><tr>';
 for ($row = 1; $row <= $highestRow; ++ $row) {
-    $val=array();
+$val=array();
+for ($col = 0; $col < $highestColumnIndex; ++ $col) {
+$cell = $worksheet->getCellByColumnAndRow($col, $row);
+//$val[]=$cell->getValue();
+echo 'val is:'.$cell->getCalculatedValue();
+array_push($val,$cell->getCalculatedValue());
+}
+//Insert data from file to mysql 
+if(sizeof($val)==12){
+$sql="INSERT INTO `child_assess`(oid1,sid,sem,year,assumed_age,lang_diff,q1,q2,q3,q4,q5,q6)
+VALUES ('".$val[0]."','".$val[1]."','". $val[2]."','".$val[3]."','".$val[4]."','".$val[5]."','".$val[6]."','".$val[7]."','".$val[8]."','".$val[9]."','".$val[10]."','".$val[11]."')";
+echo $sql."\n";
+mysqli_query($conn,$sql) or die('Invalid query: ');
+}
+}
+/*for ($row = 1; $row <= $highestRow; ++ $row) {
+    echo '<tr>';
     for ($col = 0; $col < $highestColumnIndex; ++ $col) {
         $cell = $worksheet->getCellByColumnAndRow($col, $row);
         $val = $cell->getCalculatedValue();
         //$dataType = PHPExcel_Cell_DataType::dataTypeForValue($val);
-       // echo '<td>' . $val . '<br></td>';
-        $cell = $worksheet->getCellByColumnAndRow($col, $row);
-//$val[]=$cell->getValue();
-echo 'val is:'.$cell->getCalculatedValue();
-array_push($val,$cell->getCalculatedValue());
-
+        echo '<td>' . $val . '<br></td>';
     }
-    if(sizeof($val)==12){
-    $sql="INSERT INTO `child_assess`(oid1,sid,sem,year,assumed_age,lang_diff,q1,q2,q3,q4,q5,q6)
-	VALUES ('".$val[0]."','".$val[1]."','". $val[2]."','".$val[3]."','".$val[4]."','".$val[5]."','".$val[6]."','".$val[7]."','".$val[8]."','".$val[9]."','".$val[10]."','".$val[11]."')";
-//echo $sql."\n";
-	mysqli_query($conn,$sql) or die('Invalid query: ');}
-    
+    echo '</tr>';
 }
+echo '</table>';*/
 
 }
 
