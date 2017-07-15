@@ -1,0 +1,48 @@
+﻿<html>
+<head>
+<title>demform</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body background="1.jpg" repeat="no">
+<div class="container">
+  <h2>Student Details Form</h2>
+  <form action="/action_page.php">
+    <div class="form-group">
+      <label for="text">Student name:</label>
+      <input type="text" class="form-control" id="studname" placeholder="Enter student name" name="studname">
+    </div>
+    <div class="form-group">
+      <label for="text">Student id:</label>
+      <input type="text" class="form-control" id="sid" placeholder="Enter student id" name="sid">
+    </div>
+    <div class="form-group">
+      <label for="select">Gender:</label>
+      <select name="gender" value="select gender">
+  <option value="female">female</option>
+  <option value="male">male</option>
+</select>
+    </div>
+    <div class="form-group">
+      <label for="text">Parental status:</label>
+      <input type="text" class="form-control" id="ps" placeholder="Enter parental status" name="ps">
+    </div>
+    <div class="form-group">
+      <label for="text">Family income:</label>
+      <input type="text" class="form-control" id="fi" placeholder="Enter family income" name="fi">
+    </div>
+   <div class="form-group">
+      <label for="text">DOB</label>
+      <input type="text" class="form-control" id="dob" placeholder="Enter student id" name="dob">
+    </div>
+    <button type="submit" class="btn btn-default" >Submit</button>
+  </form>
+</div>
+</body>
+
+
+</html>
