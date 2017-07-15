@@ -86,13 +86,13 @@
                         <a class="page-scroll" data-toggle="modal" data-target="#myModal" href="#about">Sign In</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#download">Sign Up</a>
+                        <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Upload</a>
+                        <a class="page-scroll" href="#upload">Upload</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Analytics</a>
+                        <a class="page-scroll" href="#analytics">Analytics</a>
                     </li>
                 </ul>
             </div>
@@ -130,10 +130,8 @@
     <div class="row">
 
 
-      <div class="fill-screen fixed-attachment" style="background">
 
-      </div></div>
-    <section id="download" class="row">
+    <section id="upload" class="row">
         <div class="container">
           <div class="container">
 
@@ -213,7 +211,7 @@
          </div>
        </form>
        </div>
-
+      
 
     <!-- Footer -->
     <footer>
