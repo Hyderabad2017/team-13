@@ -213,9 +213,9 @@
            </div>
          </div>
          <div class="form-group">
-           <label for="dob" class="control-label col-md-2">Last Name</label>
+           <label for="dob" class="control-label col-md-2">Date of Birth</label>
            <div class="col-md-8">
-             <input type="text" class="form-control" id="dob" name="dob" placeholder="yyyy/mm/dd" required>
+             <input type="text" class="form-control" id="dob" name="dob" placeholder="yyyy-mm-dd" required>
            </div>
          </div>
          <div class="form-group">
@@ -234,7 +234,7 @@
            </div>
          </div>
          <div class="form-group">
-           <label for="occupation" class="control-label col-md-2">Occupation</label>
+           <label for="occupation" class="control-label col-md-2">Parent Occupation</label>
            <div class="col-md-8">
              <input type="text" class="form-control" name="occupation" placeholder="occupation">
            </div>
@@ -432,7 +432,7 @@
             <p style="color:green">Baseline Score</p>
         </div>
     <iframe src="piec.php" id="analytics" class="col-md-offset-2 col-md-8" height="500px" style="border:0px"></iframe>
-
+    <iframe src="gend.php" id="analytics" class="col-md-offset-2 col-md-8" height="500px" style="border:0px"></iframe>
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.js"></script>
 
