@@ -44,8 +44,8 @@
   window.onload=changeButton;
 </script>
 <?php
-  }
-}
+  }}
+
 ?>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
   <!-- Navigation -->
@@ -189,7 +189,7 @@
       <div class="demographic-form" id="d-form" style="display:none">
 
 
-     <form class="form-horizontal" action="dbinsery.php" method="post">
+     <form class="form-horizontal" action="dbinsert.php" method="post">
          <div class="form-group">
            <label for="name" class="control-label col-md-2">Student Name</label>
            <div class="col-md-8">
@@ -411,6 +411,7 @@
     <!-- Footer -->
 
         <div class="row col-md-offset-2 text-center">
+          <br>
             <p style="color:red">Endline Score </p>
             <p style="color:green">Baseline Score</p>
         </div>
