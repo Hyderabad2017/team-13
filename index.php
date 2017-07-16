@@ -28,12 +28,28 @@
   include 'dbconnection.php';
   include 'dbfunctions.php';
   //echo"----";
-  session_destroy();
+  if(isset($_SESSION['login_user'])){
+    $vis=false;
+
+  ?>
+  <script type="text/javascript">
+  function changeButton(){var nu=document.getElementById('sign');
+  nu.style.display="none";
+  var nu=document.getElementById('log');
+  nu.style.display="block";
+  }
+  window.onload=changeButton;
+  </script>
+  <?php
+  }
+  //session_destroy();
   if(isset($_POST['sub'])){
     //echo "world";
     update();
     //echo $_SESSION['login_user'];
     if(!isset($_SESSION['error'])){
+      $vis=false;
+
 ?>
 <script type="text/javascript">
   function changeButton(){var nu=document.getElementById('sign');
