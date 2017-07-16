@@ -154,7 +154,9 @@
                 <p>When Learning Curve began its journey in 2011, we knew well what we wanted to do, but we didn’t know how. That’s when it began – the journey of self-reflection, research, numerous interactions with educationists, psychologists and other experts. It took us nearly two years to arrive at what we believed was a comprehensive life skills development program that would enable children to be psychologically, emotionally and socially healthy. Whenever we came across children who were marginalized in any form, our story started taking shape. It was in our third year that we were able to realize the power of life skills – when we walked into a children’s home of 40 girls for a visit. As we started working with these girls every weekend for over a year, we realized that more than academics, these children needed help with their overall self-esteem, identity, expression, self-confidence and the opportunity to realize their own potential. As we continued our work with several communities, organizations and children, the concept of emotional and social development resonated with us very strongly. It is the process through which children and acquire and effectively apply the knowledge, attitudes, and skills necessary to understand and manage emotions, set and achieve positive goals, feel and show empathy for others, establish and maintain positive relationships, and make responsible decisions. And that’s where our story began again – in the form of Learning Curve Life Skills Foundation.</p>
             </div>
         </div>
-    </section>
+    </section><div class="container">
+      <hr>
+    </div>
     <div class="row">
 
 
@@ -286,7 +288,7 @@
        </div>
 
        <div class="c-form" id="c-form" style="display:none">
-            <form class="form-horizontal" action="dbinsertca.php" method="post">
+            <form class="form-horizontal" action="dbchild.php" method="post">
               <div class="form-group">
               <label class="control-label col-md-2">Student Name</label>
               <div class="col-md-2">
@@ -339,7 +341,7 @@
                 </div>
               </div>
                 <div class="form-group">
-                  <label for="number" class="control-label col-md-2">Year</label>
+                  <label for="number" class="control-label col-md-2">Dob</label>
                   <div class="col-md-8">
                     <input type="number" class="form-control" id="dob" name="year" placeholder="year" required>
                   </div>
@@ -347,7 +349,7 @@
                 <div class="form-group">
                   <label for="ma" class="control-label col-md-2">Assumed Age</label>
                   <div class="col-md-8">
-                    <input type="text" class="form-control" name="ma" placeholder="assumed jobs">
+                    <input type="text" class="form-control" name="ma" placeholder="assumed age">
                   </div>
                 </div>
                 <div class="form-group">
@@ -403,13 +405,16 @@
 
 
 
+      <iframe src="chart.php" class="col-md-offset-2 col-md-8" height="500px" style="border:0px"></iframe>
+
 
     <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Your Website 2016</p>
+
+        <div class="row col-md-offset-2 text-center">
+            <p style="color:red">Endline Score </p>
+            <p style="color:green">Baseline Score</p>
         </div>
-    </footer>
+    <iframe src="piec.php" id="analytics" class="col-md-offset-2 col-md-8" height="500px" style="border:0px"></iframe>
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.js"></script>

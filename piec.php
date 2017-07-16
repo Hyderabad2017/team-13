@@ -5,13 +5,13 @@
 <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.fint.js?cacheBust=56"></script>
 <script type="text/javascript"></script>
 
-  
+
 </head>
-<body>
+<body style="background-color:black">
 <?php
 $l=new mysqli("13.229.51.247","root","root","mydb");
 
-$result = mysqli_query($l,"SELECT * from student where sid =1"); 
+$result = mysqli_query($l,"SELECT * from student where sid =1");
 $row = mysqli_fetch_assoc($result);
 $date = DateTime::createFromFormat("Y-m-d", $row['DOB']);
 $age = date("Y")-$date->format("Y");
@@ -21,7 +21,7 @@ $row1 = mysqli_fetch_assoc($r1);
 $r2=mysqli_query($l,"select count(*) as counts from student where $age > 8 ");
 $row2 = mysqli_fetch_assoc($r2);
 
-$result = mysqli_query($l,"SELECT * from student where sid =3"); 
+$result = mysqli_query($l,"SELECT * from student where sid =3");
 
 $r3=mysqli_query($l,"select count(*) as counts from student where $age > 3 ");
 $row3 = mysqli_fetch_assoc($r3);
@@ -59,13 +59,14 @@ FusionCharts.ready(function(){
         }, {
             "label": "age group 12-14",
             "value": v3
-        
+
         }]
     }
 }
 );
     fusioncharts.render();
 });
+
 </script>
 
 

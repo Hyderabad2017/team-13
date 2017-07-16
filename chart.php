@@ -87,6 +87,7 @@ var tempArray2 = <?php echo json_encode($count); ?>;
         datasets: [
             {
                 label: "base line",
+                color:"#fff",
                 fillColor: "rgba(0,220,0,0.2)",
                 strokeColor: "rgba(0,220,0,1)",
                 pointColor: "rgba(0,220,0,1)",

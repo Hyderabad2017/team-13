@@ -13,7 +13,7 @@
                 $result=mysqli_query($connection,$q) or die("entry failed".mysqli_error($connection));
                 if($result)
                 {
-                        header("location: index.php#cl-form");
+                        header("location: index.php#upload");
                 }
                 else
                         echo "not inserted";

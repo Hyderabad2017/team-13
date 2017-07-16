@@ -14,7 +14,7 @@ global $connection;
                 $result=mysqli_query($connection,$q) or die("entry ---failed".mysqli_error($connection));
                 if($result)
                 {
-                  header("location:index.php#d-form");
+                  header("location:index.php#upload");
                         //echo "entered successfully";
                 }
                 else
